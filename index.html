@@ -25,6 +25,7 @@
         bottom:200px;
         -webkit-animation: fall 25s linear infinite;
         -moz-animation: fall 25s linear infinite;
+        font-size:20px;
         
       }
 
@@ -56,15 +57,19 @@
         else
           return "s<br>h<br>a<br>k<br>i<br>r<br>a"
       }
-
-      function createRain() {
-
+      
+      function createRain(answer) {
         for(i = 1; i < nbDrop; i++) {
           var dropLeft = randRange(-1000,1600);
           var dropTop = randRange(-1000,1400);
           randWord();
+          
+          if (answer==1)
+            s = '<img src="brit.png">';
+          else
+            s = 'You better work, b**ch!';
 
-          $('.rain').append('<div class="drop" id="drop'+i+'"><img src="brit.png"></div>');
+          $('.rain').append('<div class="drop" id="drop'+i+'">'+s+'</div>');
           $('#drop'+i).css('left',dropLeft);
           $('#drop'+i).css('top',dropTop);
         }
@@ -76,7 +81,10 @@
   </head>
 
   <body>
-    <button type="button" onclick="createRain();">You want a big mansion?</button>
+    You want a hot body?<br>You want a Bugatti?<br>You want a Maserati?<br>You want a Lamborghini?<br>Sippin' martinis?<br>
+    Look hot in a bikini?<br>You wanna live fancy?<br>Live in a big mansion?<br>Party in France?<br><br>
+    <button type="button" onclick="createRain(1);">Yaaas!</button>
+    <button type="button" onclick="createRain(0);">Nah</button>
     <section class="rain"></section>
   </body>
 
